@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Przewodnik Ciągłości Zasilania | Exeliq Group</title>
+  <meta name="description" content="Pobierz przewodnik premium i sprawdź, jak zabezpieczyć dom lub firmę przed przerwami w zasilaniu." />
+  <meta name="theme-color" content="#0b1017" />
+  <meta property="og:title" content="Przewodnik Ciągłości Zasilania" />
+  <meta property="og:description" content="Jak zabezpieczyć dom lub firmę przed przerwami w zasilaniu i zbudować nowy standard bezpieczeństwa energetycznego." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #0b1017;
+      --bg-soft: #111722;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.10);
+      --text: #f7f8fb;
+      --muted: rgba(247,248,251,0.70);
+      --muted-2: rgba(247,248,251,0.48);
+      --cyan: #7dd8ff;
+      --magenta: #d06bc7;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 28px;
+      --container: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125,216,255,0.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(208,107,199,0.14), transparent 26%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 32px), var(--container)); margin: 0 auto; }
+    .section { padding: 88px 0; }
+    .hero { padding: 56px 0 72px; border-bottom: 1px solid var(--border); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .brand { margin-bottom: 28px; }
+    .brand img { height: 46px; width: auto; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      color: rgba(247,248,251,0.84);
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin: 22px 0 24px;
+      max-width: 11ch;
+    }
+    .hero-lead {
+      font-size: clamp(1.18rem, 2vw, 1.55rem);
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 0 20px;
+    }
+    .hero-copy {
+      color: var(--muted-2);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 0 34px;
+    }
+    .button-row { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, opacity .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: #f6f7fb;
+      color: #0b1017;
+      box-shadow: var(--shadow);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    .book-shell {
+      border-radius: 34px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .book-inner {
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(10,16,24,0.96), rgba(12,20,31,0.94));
+      padding: 36px;
+    }
+    .book-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .book-top .mini-brand {
+      letter-spacing: 0.32em;
+      font-size: 13px;
+      color: rgba(247,248,251,0.46);
+      text-transform: uppercase;
+    }
+    .book-label {
+      border: 1px solid rgba(125,216,255,0.4);
+      background: rgba(125,216,255,0.11);
+      color: #c9f1ff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+    .book-cover {
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(125,216,255,0.24), rgba(208,107,199,0.22));
+      margin-bottom: 26px;
+    }
+    .eyebrow {
+      color: rgba(247,248,251,0.56);
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .book-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      max-width: 8ch;
+    }
+    .book-divider {
+      height: 1px;
+      width: 100%;
+      margin: 24px 0;
+      background: rgba(255,255,255,0.18);
+    }
+    .book-sub {
+      color: rgba(247,248,251,0.78);
+      font-size: 1.02rem;
+    }
+    .book-list {
+      display: grid;
+      gap: 14px;
+      color: rgba(247,248,251,0.68);
+      font-size: 1rem;
+    }
+    .book-list div::before {
+      content: "•";
+      margin-right: 10px;
+      color: rgba(247,248,251,0.82);
+    }
+    .section-header { max-width: 760px; margin-bottom: 34px; }
+    .section-tag {
+      color: rgba(125,216,255,0.76);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4.8vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+    .section-copy { color: var(--muted); font-size: 1.08rem; margin: 0; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(14px);
+    }
+    .card h3 { margin: 0 0 14px; font-size: 1.35rem; line-height: 1.2; }
+    .card p, .card li { color: var(--muted); margin: 0; }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .stack { display: grid; gap: 14px; }
+    .stack .item {
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: rgba(17,23,34,0.92);
+      border: 1px solid var(--border);
+      color: rgba(247,248,251,0.80);
+    }
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .check-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--cyan);
+      margin-top: 10px;
+      flex: 0 0 auto;
+    }
+    .feature-band {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+    .feature-main {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 34px;
+    }
+    .feature-side {
+      background: rgba(17,23,34,0.96);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 34px;
+    }
+    .feature-side p { margin: 0 0 12px; color: var(--muted); }
+    .form-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 0.95fr; gap: 32px; align-items: center; }
+    .form-card {
+      background: rgba(17,23,34,0.98);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 28px;
+    }
+    .form-field { display: grid; gap: 8px; margin-bottom: 16px; }
+    label { color: rgba(247,248,251,0.66); font-size: 0.96rem; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border-radius: 18px;
+      padding: 15px 16px;
+      font: inherit;
+      outline: none;
+    }
+    option { color: #111; }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(125,216,255,0.55);
+      box-shadow: 0 0 0 4px rgba(125,216,255,0.10);
+    }
+    .form-note { color: rgba(247,248,251,0.45); font-size: 0.86rem; margin: 6px 0 0; }
+    .form-success {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(125,216,255,0.26);
+      background: rgba(125,216,255,0.10);
+      color: #dbf6ff;
+      font-size: 0.95rem;
+    }
+    .faq-list { display: grid; gap: 16px; }
+    .faq-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+    }
+    .faq-item h3 { margin: 0 0 8px; font-size: 1.18rem; }
+    .faq-item p { margin: 0; color: var(--muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0 34px;
+      background: rgba(7,10,16,0.76);
+    }
+    .footer-row {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: rgba(247,248,251,0.48);
+      font-size: 0.94rem;
+    }
+    .footer-brand img { height: 30px; width: auto; }
+    .subtle { color: var(--muted); }
+    @media (max-width: 1080px) {
+      .hero-grid, .feature-band, .form-grid, .split { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .section { padding: 72px 0; }
+      .hero { padding: 42px 0 58px; }
+      .book-inner, .book-shell, .feature-main, .feature-side, .card, .form-card, .faq-item { padding: 22px; }
+      .brand img { height: 40px; }
+      .button-row { flex-direction: column; }
+      .btn { width: 100%; }
+      .book-top { flex-direction: column; align-items: flex-start; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Exeliq Group">
+          <img src="assets/exeliq-logo.webp" alt="Exeliq Group logo" />
+        </a>
+        <div class="pill">Lead Magnet Premium • Energy Resilience</div>
+        <h1>Przewodnik Ciągłości Zasilania</h1>
+        <p class="hero-lead">Jak zabezpieczyć dom lub firmę przed przerwami w zasilaniu i zbudować nowy standard bezpieczeństwa energetycznego.</p>
+        <p class="hero-copy">Ekspercki materiał dla właścicieli domów, przedsiębiorców i inwestorów, którzy chcą zachować komfort, bezpieczeństwo i ciągłość działania — bez chaosu, bez przepłacania i bez przypadkowych decyzji.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#formularz">Odbierz przewodnik premium</a>
+          <a class="btn btn-secondary" href="#zawartosc">Zobacz, co zawiera</a>
+        </div>
+      </div>
+      <div class="book-shell">
+        <div class="book-inner">
+          <div class="book-top">
+            <div class="mini-brand">Exeliq Group</div>
+            <div class="book-label">Raport Premium</div>
+          </div>
+          <div class="book-cover">
+            <div class="eyebrow">Przewodnik</div>
+            <div class="book-title">Ciągłości Zasilania</div>
+            <div class="book-divider"></div>
+            <div class="book-sub">Dom • Firma • Inwestycja<br />Bezpieczeństwo • Komfort • Ciągłość działania</div>
+          </div>
+          <div class="book-list">
+            <div>3 poziomy bezpieczeństwa energetycznego</div>
+            <div>Scenariusze dla domu i firmy</div>
+            <div>Błędy, których warto uniknąć</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Dlaczego warto</div>
+          <h2>Ciągłość zasilania to dziś nie dodatek, lecz element nowoczesnego standardu</h2>
+          <p class="section-copy">Nawet krótka awaria może zatrzymać ogrzewanie, internet, monitoring, chłodnictwo, systemy dostępu lub operacje firmy. Ten przewodnik pokazuje, jak podejść do tematu spokojnie, profesjonalnie i z właściwą strategią działania.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Dowiesz się, co realnie przestaje działać przy awarii</h3>
+            <p>Ogrzewanie, pompy, internet, monitoring, chłodzenie, systemy dostępu i kluczowe obwody — pokażemy, jak podejść do tego świadomie.</p>
+          </article>
+          <article class="card">
+            <h3>Poznasz 3 poziomy bezpieczeństwa energetycznego</h3>
+            <p>Od podstawowego zabezpieczenia po rozwiązania premium dla domów, firm i inwestycji wymagających wysokiej ciągłości działania.</p>
+          </article>
+          <article class="card">
+            <h3>Zobaczysz, jak dobrać system bez przepłacania</h3>
+            <p>Magazyn energii, backup, falownik hybrydowy, wydzielenie obwodów i scenariusze działania — w prostym, praktycznym ujęciu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="zawartosc" class="section" style="background: rgba(255,255,255,0.03); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container split">
+        <div>
+          <div class="section-tag">Dla kogo</div>
+          <h2>Dla właścicieli domów, firm i inwestycji, którzy oczekują przewidywalności działania</h2>
+          <div class="stack" style="margin-top: 28px;">
+            <div class="item">Właściciele nowoczesnych domów i rezydencji</div>
+            <div class="item">Firmy, biura, gabinety i obiekty usługowe</div>
+            <div class="item">Inwestorzy oraz deweloperzy szukający nowego standardu bezpieczeństwa</div>
+          </div>
+        </div>
+        <div class="card" style="background: rgba(17,23,34,0.96);">
+          <div class="section-tag">W środku znajdziesz</div>
+          <ul class="check-list">
+            <li>Co dzieje się w domu lub firmie, gdy znika prąd</li>
+            <li>Jak zaplanować obwody krytyczne i czas podtrzymania</li>
+            <li>Jakie rozwiązania są dostępne na rynku</li>
+            <li>Scenariusze dla domu, firmy i obiektów premium</li>
+            <li>Najczęstsze błędy przy wyborze systemu</li>
+            <li>Jak rozpocząć od właściwego audytu potrzeb</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container feature-band">
+        <div class="feature-main">
+          <div class="section-tag">Eksperckie podejście</div>
+          <h2>Nie sprzedajemy chaosu ani paniki. Projektujemy spokój, bezpieczeństwo i ciągłość działania.</h2>
+          <p class="section-copy">Dobrze zaprojektowany system backupowy nie musi oznaczać pełnej niezależności energetycznej. Często wystarczy właściwie określić priorytety, czas podtrzymania i zakres obwodów krytycznych, aby znacząco zwiększyć odporność obiektu.</p>
+        </div>
+        <div class="feature-side">
+          <div class="section-tag">Co dalej</div>
+          <h3 style="margin: 0 0 18px; font-size: 1.8rem; line-height: 1.1;">Po pobraniu przewodnika</h3>
+          <p>1. Otrzymujesz materiał premium.</p>
+          <p>2. Poznajesz poziomy zabezpieczenia dla swojego obiektu.</p>
+          <p>3. Możesz przejść do krótkiej konsultacji wstępnej.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="formularz" class="section form-section">
+      <div class="container form-grid">
+        <div>
+          <div class="section-tag">Formularz leadowy</div>
+          <h2>Odbierz przewodnik i sprawdź, jaki poziom zabezpieczenia pasuje do Twojego obiektu</h2>
+          <p class="section-copy">Zostaw dane kontaktowe, a wyślemy Ci przewodnik oraz umożliwimy wstępną konsultację dotyczącą odporności energetycznej domu, firmy lub inwestycji.</p>
+        </div>
+        <div class="form-card">
+          <form id="leadForm">
+            <div class="form-field">
+              <label for="name">Imię</label>
+              <input id="name" name="name" placeholder="Twoje imię" required />
+            </div>
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="adres@email.com" required />
+            </div>
+            <div class="form-field">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" placeholder="Numer telefonu" />
+            </div>
+            <div class="form-field">
+              <label for="type">Typ obiektu</label>
+              <select id="type" name="type">
+                <option>Dom</option>
+                <option>Firma</option>
+                <option>Inwestycja</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="priority">Co jest dla Ciebie najważniejsze?</label>
+              <select id="priority" name="priority">
+                <option>Bezpieczeństwo domu</option>
+                <option>Komfort podczas awarii</option>
+                <option>Ciągłość działania firmy</option>
+                <option>Niższe koszty energii</option>
+                <option>Niezależność energetyczna</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit" style="width: 100%;">Pobierz raport premium</button>
+            <p class="form-note">Kliknięcie przycisku oznacza zgodę na kontakt w sprawie przewodnika i konsultacji wstępnej.</p>
+            <div id="formSuccess" class="form-success">Formularz działa jako wersja demonstracyjna. Po podpięciu endpointu leady będą trafiały bezpośrednio do skrzynki, CRM lub automatyzacji.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 980px;">
+        <div class="section-header" style="text-align:center; margin-inline:auto;">
+          <div class="section-tag">FAQ</div>
+          <h2>Najczęstsze pytania</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>Czy ten przewodnik jest dla domu czy dla firmy?</h3>
+            <p>Dla obu segmentów. Materiał został przygotowany tak, aby pomóc zarówno właścicielom domów, jak i firmom oraz inwestorom.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Czy przewodnik jest techniczny?</h3>
+            <p>Jest ekspercki, ale napisany w sposób uporządkowany i zrozumiały. Bez zbędnego żargonu i bez alarmistycznego tonu.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Co dzieje się po wypełnieniu formularza?</h3>
+            <p>Użytkownik otrzymuje przewodnik oraz możliwość krótkiej konsultacji wstępnej dotyczącej poziomu zabezpieczenia energetycznego obiektu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div class="footer-brand"><img src="assets/exeliq-logo.webp" alt="Exeliq Group logo" /></div>
+      <div>Exeliq Group • Energy Resilience</div>
+      <div>Przewodnik Ciągłości Zasilania • landing page kampanii</div>
+    </div>
+  </footer>
+
+  <script>
+    // DEMO: podmień pusty endpoint na prawdziwy adres webhooka / formularza.
+    // Przykłady: Formspree, Make, Zapier, Netlify Forms, własny backend, CRM.
+    const FORM_ENDPOINT = "";
+
+    const form = document.getElementById('leadForm');
+    const successBox = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      if (!FORM_ENDPOINT) {
+        successBox.style.display = 'block';
+        form.reset();
+        return;
+      }
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error('Błąd wysyłki');
+        successBox.textContent = 'Dziękujemy. Formularz został wysłany poprawnie.';
+        successBox.style.display = 'block';
+        form.reset();
+      } catch (error) {
+        successBox.textContent = 'Nie udało się wysłać formularza. Sprawdź endpoint lub połączenie.';
+        successBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
