@@ -524,7 +524,7 @@
   <script>
     // DEMO: podmień pusty endpoint na prawdziwy adres webhooka / formularza.
     // Przykłady: Formspree, Make, Zapier, Netlify Forms, własny backend, CRM.
-    const FORM_ENDPOINT = "";
+    const FORM_ENDPOINT = "https://formspree.io/f/xlgpppgk";
 
     const form = document.getElementById('leadForm');
     const successBox = document.getElementById('formSuccess');
@@ -540,11 +540,14 @@
       }
 
       try {
-        const response = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
+const response = await fetch(FORM_ENDPOINT, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify(data)
+});
 
         if (!response.ok) throw new Error('Błąd wysyłki');
         successBox.textContent = 'Dziękujemy. Formularz został wysłany poprawnie.';
