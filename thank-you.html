@@ -114,13 +114,34 @@
     <p class="note">Nasz zespół może również skontaktować się z Tobą w sprawie wstępnej konsultacji dotyczącej odporności energetycznej domu, firmy lub inwestycji.</p>
 
     <div class="buttons">
-      <a class="btn btn-primary" href="assets/przewodnik-ciaglosci-zasilania.pdf" target="_blank" rel="noopener">Pobierz przewodnik PDF</a>
+      <a id="downloadPdfBtn" class="btn btn-primary" href="assets/przewodnik-ciaglosci-zasilania.pdf" download>Pobierz przewodnik PDF</a>
       <a class="btn btn-secondary" href="index.html#formularz">Wróć do strony</a>
     </div>
 
     <div class="box">
-      <strong>Ważne:</strong> wgraj plik PDF do folderu <code>assets</code> pod nazwą <code>przewodnik-ciaglosci-zasilania.pdf</code>, aby przycisk pobierania działał od razu po wdrożeniu.
+      <strong>Ważne:</strong> po kliknięciu przycisku rozpocznie się pobieranie PDF, a następnie użytkownik zostanie automatycznie przekierowany na <code>www.exeliq.pl</code>.
     </div>
   </main>
+  <script>
+    const downloadBtn = document.getElementById('downloadPdfBtn');
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const pdfUrl = this.getAttribute('href');
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'przewodnik-ciaglosci-zasilania.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(() => {
+          window.location.href = 'https://www.exeliq.pl';
+        }, 1500);
+      });
+    }
+  </script>
 </body>
 </html>
