@@ -49,19 +49,6 @@
     }
     .brand { margin-bottom: 18px; }
     .brand img { height: 62px; width: auto; }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(14px);
-      color: rgba(247,248,251,0.84);
-      font-size: 14px;
-      letter-spacing: 0.01em;
-    }
     h1 {
       font-size: clamp(2.8rem, 7vw, 5.1rem);
       line-height: 0.98;
@@ -92,6 +79,7 @@
       border: 1px solid transparent;
       font-weight: 600;
       transition: transform .18s ease, background .18s ease, border-color .18s ease, opacity .18s ease;
+      cursor:pointer;
     }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary {
@@ -321,7 +309,6 @@
       font-size: 0.94rem;
     }
     .footer-brand img { height: 36px; width: auto; }
-    .subtle { color: var(--muted); }
     @media (max-width: 1080px) {
       .hero-grid, .feature-band, .form-grid, .split { grid-template-columns: 1fr; }
       .card-grid { grid-template-columns: 1fr; }
@@ -345,7 +332,7 @@
         <a class="brand" href="#top" aria-label="Exeliq Group">
           <img src="assets/exeliq-logo.webp" alt="Exeliq Group logo" />
         </a>
-                <h1>Przewodnik Ciągłości Zasilania</h1>
+        <h1>Przewodnik Ciągłości Zasilania</h1>
         <p class="hero-lead">Jak zabezpieczyć dom lub firmę przed przerwami w zasilaniu i zbudować nowy standard bezpieczeństwa energetycznego.</p>
         <p class="hero-copy">Ekspercki materiał dla właścicieli domów, przedsiębiorców i inwestorów, którzy chcą zachować komfort, bezpieczeństwo i ciągłość działania — bez chaosu, bez przepłacania i bez przypadkowych decyzji.</p>
         <div class="button-row">
@@ -483,7 +470,7 @@
             </div>
             <button class="btn btn-primary" type="submit" style="width: 100%;">Pobierz raport premium</button>
             <p class="form-note">Kliknięcie przycisku oznacza zgodę na kontakt w sprawie przewodnika i konsultacji wstępnej.</p>
-            <div id="formSuccess" class="form-success">Formularz działa jako wersja demonstracyjna. Po podpięciu endpointu leady będą trafiały bezpośrednio do skrzynki, CRM lub automatyzacji.</div>
+            <div id="formSuccess" class="form-success"></div>
           </form>
         </div>
       </div>
@@ -522,40 +509,41 @@
   </footer>
 
   <script>
-    // DEMO: podmień pusty endpoint na prawdziwy adres webhooka / formularza.
-    // Przykłady: Formspree, Make, Zapier, Netlify Forms, własny backend, CRM.
     const FORM_ENDPOINT = "https://formspree.io/f/xlgpppgk";
+    const REDIRECT_URL = "thank-you.html";
 
     const form = document.getElementById('leadForm');
     const successBox = document.getElementById('formSuccess');
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      const submitButton = form.querySelector('button[type="submit"]');
       const data = Object.fromEntries(new FormData(form).entries());
-
-      if (!FORM_ENDPOINT) {
-        successBox.style.display = 'block';
-        form.reset();
-        return;
-      }
+      submitButton.disabled = true;
+      submitButton.style.opacity = '0.75';
 
       try {
-const response = await fetch(FORM_ENDPOINT, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  body: JSON.stringify(data)
-});
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
 
         if (!response.ok) throw new Error('Błąd wysyłki');
-        successBox.textContent = 'Dziękujemy. Formularz został wysłany poprawnie.';
+        successBox.textContent = 'Dziękujemy. Przekierowujemy do pobrania przewodnika.';
         successBox.style.display = 'block';
         form.reset();
+        setTimeout(() => {
+          window.location.href = REDIRECT_URL;
+        }, 900);
       } catch (error) {
-        successBox.textContent = 'Nie udało się wysłać formularza. Sprawdź endpoint lub połączenie.';
+        successBox.textContent = 'Nie udało się wysłać formularza. Sprawdź połączenie i spróbuj ponownie.';
         successBox.style.display = 'block';
+        submitButton.disabled = false;
+        submitButton.style.opacity = '1';
       }
     });
   </script>
